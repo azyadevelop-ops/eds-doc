@@ -82,9 +82,9 @@
   pointer-events: none;
   background: linear-gradient(
     135deg,
-    rgba(7, 9, 12, 0.88) 0%,
-    rgba(12, 16, 23, 0.6) 40%,
-    rgba(12, 16, 23, 0.25) 70%,
+    rgba(255, 255, 255, 0.88) 0%,
+    rgba(247, 250, 252, 0.6) 40%,
+    rgba(247, 250, 252, 0.25) 70%,
     rgba(0, 212, 255, 0.02) 100%
   );
 }
@@ -110,9 +110,9 @@
   text-transform: uppercase;
   letter-spacing: 4px;
   line-height: 0.95;
-  color: #fff;
+  color: var(--carbon-100);
   margin: 0 0 16px;
-  text-shadow: 0 0 40px rgba(0, 212, 255, 0.15);
+  text-shadow: 0 0 40px rgba(0, 163, 199, 0.18);
 }
 
 /* Description */
