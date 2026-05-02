@@ -1,6 +1,9 @@
 /* header and nav layout */
 header .nav-wrapper {
-  background-color: var(--background-color);
+  background: rgba(12, 16, 23, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--glass-border);
   width: 100%;
   z-index: 2;
   position: fixed;
@@ -18,7 +21,7 @@ header nav {
   max-width: 1248px;
   height: var(--nav-height);
   padding: 0 24px;
-  font-family: var(--body-font-family);
+  font-family: var(--font-heading), space-grotesk-fallback, sans-serif;
 }
 
 header nav[aria-expanded='true'] {
@@ -55,7 +58,15 @@ header nav p {
 }
 
 header nav a:any-link {
-  color: currentcolor;
+  color: var(--carbon-300);
+  text-decoration: none;
+  transition: color 0.2s, text-shadow 0.2s;
+}
+
+header nav a:hover {
+  color: var(--electric-cyan);
+  text-decoration: none;
+  text-shadow: 0 0 12px rgba(0, 212, 255, 0.4);
 }
 
 /* hamburger */
@@ -72,8 +83,8 @@ header nav .nav-hamburger button {
   border: 0;
   border-radius: 0;
   padding: 0;
-  background-color: var(--background-color);
-  color: inherit;
+  background-color: transparent;
+  color: var(--carbon-100);
   overflow: initial;
   text-overflow: initial;
   white-space: initial;
@@ -143,9 +154,16 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
 header .nav-brand {
   grid-area: brand;
   flex-basis: 128px;
-  font-size: var(--heading-font-size-s);
+  font-family: var(--font-display), orbitron-fallback, sans-serif;
+  font-size: 20px;
   font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
   line-height: 1;
+}
+
+header .nav-brand a:any-link {
+  color: var(--electric-cyan);
 }
 
 header nav .nav-brand img {
@@ -171,10 +189,14 @@ header nav .nav-sections ul {
   list-style: none;
   padding-left: 0;
   font-size: var(--body-font-size-s);
+  font-weight: 500;
 }
 
 header nav .nav-sections ul > li {
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 header nav .nav-sections ul > li > ul {
@@ -183,6 +205,8 @@ header nav .nav-sections ul > li > ul {
 
 header nav .nav-sections ul > li > ul > li {
   font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
 }
 
 @media (width >= 900px) {
@@ -233,6 +257,22 @@ header nav .nav-sections ul > li > ul > li {
     position: relative;
   }
 
+  /* animated underline on desktop nav items */
+  header nav .nav-sections .default-content-wrapper > ul > li > a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: var(--electric-cyan);
+    box-shadow: 0 0 8px rgba(0, 212, 255, 0.4);
+    transition: width 0.3s ease;
+    margin-top: 2px;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li > a:hover::after {
+    width: 100%;
+  }
+
   header nav .nav-sections .default-content-wrapper > ul > li > ul {
     display: none;
     position: relative;
@@ -245,7 +285,12 @@ header nav .nav-sections ul > li > ul > li {
     width: 200px;
     top: 150%;
     padding: 16px;
-    background-color: var(--light-color);
+    background: rgba(19, 23, 33, 0.9);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
     white-space: initial;
   }
 
@@ -258,7 +303,7 @@ header nav .nav-sections ul > li > ul > li {
     height: 0;
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
-    border-bottom: 8px solid var(--light-color);
+    border-bottom: 8px solid rgba(19, 23, 33, 0.9);
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul > li {
